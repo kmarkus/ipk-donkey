@@ -7,6 +7,14 @@ the current build.
 build & install
 ---------------
 
+install chicken scheme:
+
+```sh
+$ sudo apt-get install chicken-bin
+```
+
+clone the repo and build it:
+
 ```sh
 $ cd ipk-donkey
 $ sudo chicken-install
