@@ -1,5 +1,5 @@
 ((author "mk")
  (synopsis "simply bitbake ipk server")
  (license "MIT")
- (needs spiffy fmt fmt-color posix irregex simple-configuration)
+ (needs spiffy fmt posix irregex simple-configuration)
  (files "ipk-donkey.scm" "ipk-donkey.setup"))
