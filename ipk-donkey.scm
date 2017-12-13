@@ -4,7 +4,8 @@
 
 (use spiffy fmt fmt-color posix irregex
      simple-directory-handler
-     simple-configuration)
+     simple-configuration
+     pathname-expand)
 
 (define (write-default-dot-file fn)
   (with-output-to-file fn
@@ -17,7 +18,7 @@
 	(fmt #t (fmt-red "error: BUILDDIR environment variable not set") nl)
 	(exit 1))
   (let* ((ipk-root (string-append build-dir "/tmp/deploy/ipk"))
-	 (dot-file (normalize-pathname "~/.ipk-donkey")))
+	 (dot-file (pathname-expand "~/.ipk-donkey")))
     (unless (directory-exists? ipk-root)
 	    (fmt #t (fmt-red "error: root-path not a directory: " ipk-root) nl)
 	    (exit 2))
