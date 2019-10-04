@@ -48,3 +48,9 @@ Customize
 
 You can customize some properties in the `.ipk-donkey` dot file, which
 is automatically created.
+
+
+License
+-------
+
+MIT
