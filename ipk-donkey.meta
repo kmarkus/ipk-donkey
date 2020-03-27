@@ -1,5 +1,0 @@
-((author "mk")
- (synopsis "simply bitbake ipk server")
- (license "MIT")
- (needs spiffy fmt posix irregex simple-configuration pathname-expand)
- (files "ipk-donkey.scm" "ipk-donkey.setup"))

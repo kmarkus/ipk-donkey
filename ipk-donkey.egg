@@ -1,0 +1,7 @@
+((license "MIT")
+ (category tools)
+ (version 2.1)
+ (dependencies spiffy fmt pathname-expand getopt-long)
+ (author "Markus Klotzbuecher")
+ (synopsis "simply bitbake ipk server")
+ (components (program ipk-donkey)))

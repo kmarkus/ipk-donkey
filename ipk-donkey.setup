@@ -1,3 +1,0 @@
-
-(compile ipk-donkey.scm )
-(install-program 'ipk-donkey '("ipk-donkey") '((version "0.2")))
