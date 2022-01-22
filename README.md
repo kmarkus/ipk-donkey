@@ -4,7 +4,7 @@ ipk-donkey
 tiny bitbake ipk server for quick and dirty serving of the results of
 the current build.
 
-build & install
+Build & Install
 ---------------
 
 install chicken scheme:
@@ -20,37 +20,60 @@ $ cd ipk-donkey
 $ sudo chicken-install
 ```
 
-configure yocto in `local.conf`
+Configure package URI and path
 -------------------------------
+
+In `local.conf`:
 
 ```sh
 # enable package management
 EXTRA_IMAGE_FEATURES ?= "debug-tweaks package-management"
 
-# configure server ip (and port)
+# configure server ip (and port), leave feed path empty
 PACKAGE_FEED_URIS ?= "<ip>:8080"
 PACKAGE_FEED_BASE_PATHS = ""
 ```
 
-Run
----
+Running
+-------
 
 After sourcing an `oe-init-build-env` file, just run as follows to
 serve the current build
 
 ```sh
 $ ipk-donkey
-serving directory /home/klk/yocto-builds/skybase-dev/tmp/deploy/ipk on port 8080
+serving directory /build/bbb-dunfell/build/tmp/deploy/ipk on port 8080
 ```
 
-Customize
----------
+(If you can't run `ipk-donkey` with the build environment sourced, you
+can also manually set the `BUILDDIR` environment variable)
 
-You can customize some properties in the `.ipk-donkey` dot file, which
-is automatically created.
+run `ipk-donkey -h` to see available options.
 
+after (re-) building one or more package, make sure to run `bitbake
+package-index` to refresh the package lists.
+
+
+Installing packages on the target
+---------------------------------
+
+With the above, just run the regualar
+
+```sh
+$ opkg update
+$ opkg install PACKAGE
+```
+
+**Note**
+
+If the code has changed but the version hasn't (i.e. during
+development using `devtool`) then you may need to force the reinstall
+
+```sh
+$ opkg update && opkg install --force-reinstall PACKAGE
+```
 
 License
 -------
 
-MIT
+BSD-3-Clause

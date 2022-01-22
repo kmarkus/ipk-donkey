@@ -1,6 +1,8 @@
 ;;
 ;; Minimal yocto ipk package server
 ;;
+;; SPDX-License-Identifier: BSD-3-Clause
+;;
 
 (import (chicken file)
 	(chicken irregex)
